@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="icon" type="image/png" href="/images/pikachu-web-icon.png">
+    <title>Pokedex 1.0 Kanto</title>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav class="fixed shadow-md bg-pkdex-red-dark w-full h-16 flex justify-center items-center pl-20">
+        <input type="text" placeholder="# or name" class="pl-4 w-64 h-10 bg-white rounded-full">
+        <ul class="flex gap-10 text-white pr-10 font-light pl-5">
+            <li class="hover:scale-110 transition duration-100">Pokedex</li>
+            <li class="hover:scale-110 transition duration-100">Home</li>
+            <li class="hover:scale-110 transition duration-100">About</li>
+        </ul>
+    </nav>
+
+    <!-- Side bar -->
+    <div class="fixed inset-y-0 bg-gradient-to-b from-pkdex-red-dark to-pkdex-red-darker w-56 flex flex-col items-center justify-between">
+        <header class="w-4/5 pt-3">
+            <img src="/images/pkdex-logo.png" alt="">
+        </header>
+
+        <!-- Recent Searches -->
+        <main class="w-full h-full pt-3 text-white">
+            <h1 class="w-full text-center pb-1">Recent search</h1>
+            <!-- <p class="w-full text-center font-light text-sm">No recent searches found</p> -->
+
+            <!-- Recent pokemon searched -->
+            <div class="flex items-center px-4">
+                <img src="https://www.serebii.net/pokedex-sm/icon/003.png" alt="">
+                <p class="font-thin">Venusaur</p>
+            </div>
+
+            <div class="flex items-center px-4">
+                <img src="https://www.serebii.net/pokedex-sm/icon/003.png" alt="">
+                <p class="font-thin">Venusaur</p>
+            </div>
+
+            <div class="flex items-center px-4">
+                <img src="https://www.serebii.net/pokedex-sm/icon/003.png" alt="">
+                <p class="font-thin">Venusaur</p>
+            </div>
+        </main>
+
+        <!-- footer -->
+        <footer class="w-full bg-pkdex-red-strong flex flex-col items-center text-white py-4">
+            <p class="font-light">Follow and contac!</p>
+            <div class="flex items-center gap-1">
+                <a href="">
+                    <img class="w-10 object-contain" src="/images/ig-icon.png" alt="">
+                </a>
+                <a href="">
+                    <img class="w-8" src="/images/github-icon.png" alt="">
+                </a>
+                <a href="">
+                    <img class="w-8" src="/images/YouTube-icon.png" alt="">
+                </a>
+            </div>
+            <p class="font-thin text-sm">Designed by:</p>
+            <p class="font-light">Jose en Australia</p>
+            <p class="font-light">Pokémon © Nintendo.</p>
+        </footer>
+    </div>
+
+    <!-- Main Container -->
+    <div class="w-full pl-[224px] min-h-screen bg-gray-200">
+
+        <!-- Content box (cambiar hidden x flex) -->
+        <main class="w-full flex-col items-center hidden pt-16">
+            <h1 class="text-5xl font-bold py-5">Pokedex!</h1>
+
+            <!-- Pkdex Intro -->
+            <div class="bg-white rounded-xl shadow-md px-5 py-3 flex flex-col items-center">
+                <h2 class="pb-4 text-center font-bold">Welcome to my Pokédex project!</h2>
+                <p class="font-light text-sm">This web Pokédex contains all Kanto Pokemon (#1 to #151).<br><br>I will gradually include more pokemon and functionalities. <br>To report any bug, or give feedback please refer to my GitHub repository.<br><br>You can also check the code there. Any suggestions will be more than welcome.</p>
+                <button class="border rounded-lg w-36 h-8 mt-4 text-white bg-pkdex-red-dark">See Pokedex</button>
+            </div>
+
+            <!-- Reload -->
+            <div class="w-full flex px-5 gap-2">
+                <p>Reload</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:animate-spin">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+            </div>
+
+            <!-- Random dex numbers -->
+            <div class="w-full mt-5 flex justify-between">
+
+                <!-- Pokemon Card 1-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 2-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 3-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 4-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 5-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 6-->               
+                <div class="px-3">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Card 7-->               
+                <div class="px-4">
+                    <!-- pokeball -->
+                    <div class="w-full flex items-center justify-center">
+                        <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                    </div>
+
+                    <!-- pokemon info -->
+                    <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                        <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                            <div class="flex items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <p>#006</p>
+                            </div>
+                            <p>Charizard</p>
+                            <div class="text-sm flex gap-3">
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                            </div>
+
+                            <!-- evolution line -->
+                            <div class="flex pt-1 items-center gap-1">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                                <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                <img src="/images/charizard-sprite-mini.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Dex Container (cambiar hidden x flex)-->
+        <main class="hidden flex-col pb-10 pt-16">
+            <h1 class="text-3xl font-bold pl-5 pt-3">Pokedex</h1>
+            <div class="flex items-center pl-5">
+                <p class="text-xl font-light">Kanto</p>
+                <img class="w-2" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/TriangleArrow-Down.svg" alt="">
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="grid md:grid-cols-2 reg:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-3">
+                    <!-- Pokemon Card 1-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 2-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 3-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 4-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 5-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 6-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 7-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 8-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 9-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 10-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 6-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 7-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 8-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 9-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pokemon Card 10-->               
+                    <div class="px-3 w-48">
+                        <!-- pokeball -->
+                        <div class="w-full flex items-center justify-center">
+                            <img class="w-28 -mb-16" src="/images/pokeball.png" alt="">
+                        </div>
+    
+                        <!-- pokemon info -->
+                        <div class="bg-white flex flex-col items-center font-light rounded-lg px-2 shadow-md">
+                            <div class="flex flex-col items-center pb-2 pt-16 w-36">
+                                <div class="flex items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <p>#006</p>
+                                </div>
+                                <p>Charizard</p>
+                                <div class="text-sm flex gap-3">
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-orange-500 text-white">Fire</p>
+                                    <p class="flex justify-center items-center px-2 py-1 rounded-lg bg-sky-500 text-white">Flying</p>
+                                </div>
+    
+                                <!-- evolution line -->
+                                <div class="flex pt-1 items-center gap-1">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                    <img class="h-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Red_Arrow_Right.svg/1024px-Red_Arrow_Right.svg.png" alt="">
+                                    <img src="/images/charizard-sprite-mini.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pokemon Summary -->
+        <main class="pt-16">
+            <div>
+                <div>
+                    <div class="flex items-center justify-end pr-6 pt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                          </svg>
+                          
+                        <p>Back</p>
+                    </div>
+                    <div class="flex px-4 items-center justify-center gap-3 shrink-0">
+
+                        <!-- Name and IMG -->
+                        <div class="flex flex-col items-center min-w-1/4">
+                            <div class="flex items-center gap-1">
+                                <img src="https://www.serebii.net/pokedex-sm/icon/003.png" alt="">
+                                <h1 class="text-2xl font-bold">#003 Venusaur</h1>
+                            </div>
+                            <div class="bg-slate-300 rounded-2xl object-contain w-60 h-60 shadow-md">
+                                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="">
+                            </div>
+
+                        </div>
+
+                        <!-- Dex entry -->
+                        <div class="w-1/4">   
+                            <div class="flex gap-1">
+                                <p class="bg-green-400 text-white px-2 py-1 rounded-xl ">Grass</p>
+                                <p class="bg-purple-600 text-white px-2 py-1 rounded-xl ">Poison</p>
+                            </div>
+                            <div>
+                                <h1 class="font-bold text-lg pb-1">Pokedex entry</h1>
+                                <h2 class="font-bold">Seed Pokemon</h2>
+                                <p class="font-thin pb-2">Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.</p>
+                                <div class="flex pb-1">
+                                    <p class="font-bold">Weight:</p>
+                                    <p class="font-thin">100 kg</p>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-bold">Height:</p>
+                                    <p class="font-thin">2.10 mts</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Base Stats -->
+                        <div class="pt-10 w-1/4">
+                            <h1 class="font-bold text-lg">Base Stats</h1>
+                            <div class="flex flex-col">
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <p class="font-bold">HP:</p>
+                                    <div class="flex items-center gap-3 justify-start">
+                                        <p class="font-light">80</p>
+                                        <div class="w-36 h-5 bg-gradient-to-r from-red-600 to-yellow-400 rounded-lg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- evolution, abilities and weaknes -->
+                        <div>
+                            <div>
+                                <h1>Evolution</h1>
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h1>Abilities</h1>
+                                <p>Overgrowth</p>
+                                <p></p>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reload -->
+                <div></div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="fixed w-full h-full top-0 left-0 hidden">
+      
+        <!-- Overlay -->
+        <div class="w-full h-full flex items-center justify-center">
+
+            <!-- Modal Window -->
+            <div class="bg-black opacity-90  w-1/3 rounded-lg shadow-lg px-6 py-3 text-white">
+                <div class="flex justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
+                  
+                <h1 class="font-bold text-2xl pb-2 w-full text-center">About this project:</h1>
+                <p class="text-justify font-light">This Pokédex web was designed and programmed by Jose in Australia (see Instagram or Github).<br><br>The main purpose of this project is to practice Javascript, especially Async JS, use of Fetch API and consume an external API. This project was developed using HTML, Tailwind.css, and Vanilla JS.<br><br>This project does not have the intention of generating money or any other source of income. All rights belong to The Pokémon Company, Game Freak and Nintendo.<br><br>Should you require any further information, please contact me on my Instagram or Github.</p>
+                <p class="pt-2">Thanks for your visit!</p>
+                <p class="pt-2 font-bold">Jose en Australia </p>
+            </div>
+
+        </div>
+      
+      </div>
+
+</body>
+</html>
